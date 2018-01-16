@@ -11,7 +11,7 @@ var client = new Twitter({
   access_token_secret: 'YOUR_ACCESS_TOKEN_SECRET',
 });
 // var project = 'Link_to_Github_Project';
-
+var json = fs.readFileSync('package.json');
 var tweet = fs.readFileSync('.git/COMMIT_EDITMSG') + ' ' + JSON.parse(json).repository.url;
 
 client.post('statuses/update', { status: tweet},  
